@@ -1,0 +1,8 @@
+title: "ECHOES OF SPACE"
+email: ""
+baseurl: ""
+url: ""
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
