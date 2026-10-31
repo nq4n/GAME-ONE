@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECHOES OF SPACE | أصداء الفضاء</title>
+<style>
+:root{--bg:#07111f;--panel:#101e32;--panel2:#152742;--cyan:#70e1f5;--gold:#f6c96b;--text:#edf5ff;--muted:#a8b8ce}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:radial-gradient(ellipse at top,#142747 0,#07111f 58%);color:var(--text);line-height:1.7}
+header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff18;gap:16px;flex-wrap:wrap}
+.logo{font-weight:800;letter-spacing:.8px;color:var(--cyan)}nav{display:flex;gap:10px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:20px}nav a:hover{background:#ffffff12;color:white}
+.hero{padding:65px 7% 55px;display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
+.eyebrow{color:var(--gold);font-size:14px}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.2;margin:12px 0}.hero p{color:var(--muted);max-width:650px}
+.btn{border:0;border-radius:12px;padding:12px 18px;background:var(--cyan);color:#061321;font-weight:bold;cursor:pointer;margin:5px 0 0 5px}.btn.secondary{background:#ffffff12;color:var(--text);border:1px solid #ffffff22}
+.orbit{height:260px;display:grid;place-items:center;position:relative}.planet{width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#a7d7e9,#456c9b 45%,#17284b 75%);box-shadow:0 0 55px #5ab8e955;position:relative}.planet:after{content:"";position:absolute;width:270px;height:75px;border:2px solid #9be6f7aa;border-radius:50%;transform:rotate(-20deg);top:60px;left:-40px}
+section{padding:28px 7% 48px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;flex-wrap:wrap}.section-head h2{margin:0;font-size:28px}.section-head p{color:var(--muted);margin:5px 0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:20px}.card{background:linear-gradient(145deg,var(--panel),#0b1728);border:1px solid #ffffff14;border-radius:18px;padding:20px;min-height:175px}.card .icon{font-size:30px}.card h3{margin:8px 0}.card p{color:var(--muted);font-size:14px}.tag{display:inline-block;color:var(--cyan);font-size:12px;background:#70e1f515;padding:4px 9px;border-radius:20px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:20px}.museum-art{background:linear-gradient(135deg,#1b3555,#091525);border-radius:18px;min-height:270px;display:grid;place-items:center;font-size:90px;border:1px solid #ffffff16}.museum-info{padding:10px}.museum-info p{color:var(--muted)}
+.story{display:flex;gap:18px;align-items:center}.story .cover{font-size:54px;background:#172a43;border-radius:14px;padding:16px}
+.quizbox{background:var(--panel);border:1px solid #ffffff18;border-radius:18px;padding:22px;margin-top:20px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answers button{background:#182b45;color:white;border:1px solid #ffffff22;border-radius:12px;padding:12px;cursor:pointer}.answers button:hover{border-color:var(--cyan)}#feedback{color:var(--gold);min-height:28px}
+footer{padding:28px 7%;border-top:1px solid #ffffff18;color:var(--muted);font-size:13px}
+@media(max-width:800px){.hero,.feature{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.orbit{height:200px}.planet{width:140px;height:140px}.planet:after{width:210px;left:-35px;top:40px}}
+@media(max-width:480px){.grid,.answers{grid-template-columns:1fr}.hero{padding-top:40px}}
+</style>
+</head>
+<body>
+<div style="background:linear-gradient(90deg,#0a213a,#164b73);padding:10px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #70e1f555;font-size:14px;gap:10px;flex-wrap:wrap;">
+  <span>🚀 <b>تم تفعيل اللعبة ثلاثية الأبعاد والمنصة الكاملة!</b> انقر لبدء اللعبة أو فتح المنصة الكاملة:</span>
+  <div style="display:flex;gap:8px;">
+    <a href="echoes_space_v2/index.html" style="background:#70e1f5;color:#061321;padding:6px 16px;border-radius:20px;text-decoration:none;font-weight:bold;">▶ تشغيل اللعبة 3D</a>
+    <a href="index.html" style="background:rgba(255,255,255,0.15);color:#fff;padding:6px 14px;border-radius:20px;text-decoration:none;font-weight:bold;border:1px solid rgba(255,255,255,0.3);">المنصة الكاملة ↗</a>
+  </div>
+</div>
+<header><div class="logo">✦ ECHOES OF SPACE</div><nav><a href="#explore">استكشف</a><a href="#museum">المتحف</a><a href="#stories">القصص</a><a href="#quiz">اختبر نفسك</a></nav></header>
+<main>
+<div class="hero">
+<div><div class="eyebrow">منصة تعليمية تفاعلية • نموذج أولي</div><h1>كل قطعة تركناها في الفضاء،<br><span style="color:var(--cyan)">لها قصة تستحق أن تُروى.</span></h1><p>اكتشف المعدات التي بقيت على القمر والمريخ، وتعرّف على مهماتها من خلال متحف ثلاثي الأبعاد، وقصص، ولعبة تعليمية، وتحديات معرفية.</p><button class="btn" onclick="document.querySelector('#explore').scrollIntoView({behavior:'smooth'})">ابدأ الاستكشاف ←</button><button class="btn secondary" onclick="document.querySelector('#museum').scrollIntoView({behavior:'smooth'})">زيارة المتحف</button></div>
+<div class="orbit"><div class="planet"></div></div>
+</div>
+<section id="explore"><div class="section-head"><div><h2>رحلتك التعليمية</h2><p>اختر الطريقة التي تناسبك لاكتشاف إرث استكشاف الفضاء.</p></div></div>
+<div class="grid">
+<div class="card"><div class="icon">🪐</div><span class="tag">استكشف</span><h3>متحف المعدات</h3><p>تعرّف على المعدات الفضائية ومهماتها وأهميتها.</p><button class="btn secondary" onclick="document.querySelector('#museum').scrollIntoView({behavior:'smooth'})">دخول المتحف</button></div>
+<div class="card"><div class="icon">🎮</div><span class="tag">العب وتعلّم</span><h3>مهمة الاستكشاف</h3><p>حل الألغاز واجمع الأدلة واكتشف قصة معدّة فضائية.</p><button class="btn secondary" onclick="window.location.href='echoes_space_v2/index.html'">ابدأ المهمة</button></div>
+<div class="card"><div class="icon">📖</div><span class="tag">اقرأ</span><h3>قصص من الفضاء</h3><p>قصص مبسطة تحوّل المهمات العلمية إلى حكايات ممتعة.</p><button class="btn secondary" onclick="document.querySelector('#stories').scrollIntoView({behavior:'smooth'})">اقرأ قصة</button></div>
+<div class="card"><div class="icon">🧠</div><span class="tag">اختبر معرفتك</span><h3>تحديات وأسئلة</h3><p>اختبر ما تعلمته واجمع نقاط المعرفة.</p><button class="btn secondary" onclick="document.querySelector('#quiz').scrollIntoView({behavior:'smooth'})">ابدأ الاختبار</button></div>
+</div></section>
+<section id="museum"><div class="section-head"><div><h2>المتحف الفضائي</h2><p>نموذج أولي لبطاقة معدّة — يمكن استبدال الرسم بنموذج 3D حقيقي.</p></div></div>
+<div class="feature"><div class="museum-art">🛰️</div><div class="museum-info"><span class="tag">معروض تجريبي</span><h2>مركبة استكشاف فضائية</h2><p>تُستخدم المركبات الروبوتية لاستكشاف أسطح الأجرام السماوية، وجمع البيانات والصور، ومساعدة العلماء على فهم بيئات يصعب على البشر الوصول إليها.</p><p><b>ماذا تكتشف؟</b> المهمة • الأدوات • طريقة العمل • ما الذي تعلمناه منها؟</p><button class="btn" onclick="window.location.href='index.html#museum'">استكشف المعدّة 3D</button></div></div>
+</section>
+<section id="stories"><div class="section-head"><div><h2>قصص من الفضاء</h2><p>التعلّم يبدأ بسؤال… ثم تتحول المعلومة إلى مغامرة.</p></div></div>
+<div class="card story"><div class="cover">🌙</div><div><span class="tag">قصة قصيرة • نموذج</span><h3>الرسالة التي بقيت على القمر</h3><p>في مكان هادئ بعيد عن الأرض، بقيت معدات تحمل آثار رحلة علمية. ماذا كانت تفعل؟ وما الذي تركته لنا من معرفة؟</p><button class="btn secondary" onclick="window.location.href='index.html#stories'">افتح القصة</button></div></div>
+</section>
+<section id="quiz"><div class="section-head"><div><h2>اختبر معرفتك</h2><p>سؤال تجريبي سريع.</p></div></div>
+<div class="quizbox"><h3>لماذا ترسل ناسا مركبات روبوتية لاستكشاف القمر والمريخ؟</h3><div class="answers"><button onclick="answer(false)">لإقامة مدن فورًا</button><button onclick="answer(true)">لجمع البيانات والصور ودراسة البيئة</button><button onclick="answer(false)">لإضاءة الكواكب</button><button onclick="answer(false)">لإيقاف دورانها</button></div><p id="feedback"></p></div>
+</section>
+</main>
+<footer>© ECHOES OF SPACE: THE LAST SIGNAL • نموذج تصوري للفريق — المحتوى العلمي النهائي يحتاج توثيقًا بمصادر ناسا.</footer>
+<script>
+function answer(ok){document.getElementById('feedback').textContent=ok?'إجابة صحيحة! المركبات تجمع بيانات تساعد العلماء على دراسة البيئة.':'حاول مرة أخرى! فكّر في دور الاستكشاف العلمي.'}
+</script>
+</body></html>

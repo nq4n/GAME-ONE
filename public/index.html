@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECHOES OF SPACE: THE LAST SIGNAL | أصداء الفضاء</title>
+  <meta name="description" content="منصة تفاعلية ولعبة ثلاثية الأبعاد لاستكشاف المعدات الفضائية التاريخية على القمر والمريخ لمسابقة ناسا سبيس آبس 2026.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+  <style>
+    /* Embedded Game Theater */
+    .game-theater {
+      background: #020712;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 30px var(--cyan-glow);
+      position: relative;
+    }
+    .game-theater-bar {
+      background: rgba(8, 20, 36, 0.95);
+      border-bottom: 1px solid var(--border-line);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .game-frame {
+      width: 100%;
+      height: 640px;
+      border: none;
+      display: block;
+      background: #000;
+    }
+    @media (max-width: 768px) {
+      .game-frame {
+        height: 480px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER & NAVBAR -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="#">
+        <div class="brand-icon">✦</div>
+        <div class="brand-text">
+          <h1>ECHOES OF SPACE</h1>
+          <small data-i18n="brand_sub">الإشارة الأخيرة · ناسا سبيس آبس 2026</small>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a class="nav-link active" href="#game" data-i18n="nav_game">اللعبة 3D</a></li>
+          <li><a class="nav-link" href="#missions" data-i18n="nav_missions">المهمات</a></li>
+          <li><a class="nav-link" href="#museum" data-i18n="nav_museum">متحف 3D</a></li>
+          <li><a class="nav-link" href="#lab" data-i18n="nav_lab">مختبر الحركة</a></li>
+          <li><a class="nav-link" href="#stories" data-i18n="nav_stories">القصص</a></li>
+          <li><a class="nav-link" href="#quiz" data-i18n="nav_quiz">اختبر نفسك</a></li>
+          <li><a class="nav-link" href="#bible" data-i18n="nav_bible">وثيقة المشروع</a></li>
+          <li><a class="nav-link" href="#community" data-i18n="nav_community">المتصدرون</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="xp-badge" id="xpBadge">★ 450 XP</div>
+        <button class="btn-chip" id="btnLang">English</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main id="explore">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge" data-i18n="hero_badge">تحدي ناسا سبيس آبس 2026 // تجربة تعليمية تفاعلية قابلة للعب</div>
+          <h1>
+            <span data-i18n="hero_title_1">كل قطعة تركناها في الفضاء،</span><br>
+            <span class="highlight-cyan" data-i18n="hero_title_2">لها قصة تستحق أن تُروى.</span>
+          </h1>
+          <p class="lead" data-i18n="hero_lead">
+            اكتشف إرث المعدات العلمية التي تركتها بعثات القمر والمريخ عبر محاكاة 3D WebGL قابلة للعب بالكامل، وتجارب فيزيائية واقعية، وقصص ملهمة، وتحديات معرفية.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn-primary" id="btnLaunchApollo" style="font-size: 16px;">
+              <span data-i18n="btn_launch_apollo">▶ تشغيل لعبة أبولو 15 ثلاثية الأبعاد الآن</span>
+            </button>
+            <button class="btn-primary btn-mars" id="btnMarsSim">
+              <span data-i18n="btn_mars_sim">⚡ محاكاة أوبورتونيتي على المريخ</span>
+            </button>
+            <a class="btn-secondary" href="game.html" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="btn_direct_game">فتح اللعبة في شاشة كاملة مخصصة ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-artwork">
+          <img src="assets/hero-rover.jpg" alt="Apollo 15 Lunar Roving Vehicle on the Moon">
+          <div class="artwork-overlay">
+            <span class="artwork-tag">APOLLO 15 · HADLEY–APENNINE</span>
+            <div class="artwork-title">المركبة القمرية الجوالة (LRV-1)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PLAYABLE 3D LUNAR ROVER GAME THEATER -->
+    <section class="section" id="game" style="padding-top: 10px;">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-i18n="game_sec_kicker">جينيسيس II // محاكاة 3D تفاعلية قابلة للعب</span>
+          <h2 class="section-title" data-i18n="game_sec_title">لعبة قيادة المركبة القمرية (بعثة أبولو 15)</h2>
+          <p class="section-desc" data-i18n="game_sec_desc">
+            تحرك على سطح القمر في موقع هادلي-أبينين، واجمع 3 إشارات علمية، وافحص العربة القمرية، واختر مسارك وقد المركبة حتى منارة البحث العلمي.
+          </p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn-primary" onclick="window.launchApolloGame()">⛶ تكبير الشاشة (Theater Mode)</button>
+          <a class="btn-secondary" href="game.html" target="_blank">نافذة مستقلة ↗</a>
+        </div>
+      </div>
+
+      <div class="game-theater">
+        <div class="game-theater-bar">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan);"></span>
+            <strong style="color: #fff; font-size: 14px;">HADLEY–APENNINE // LIVE SIMULATION</strong>
+            <span class="badge-tag">WebGL 3D ACTIVE</span>
+          </div>
+          <div style="color: var(--text-muted); font-size: 13px;">
+            التحكم: <strong>W/A/S/D</strong> أو الأسهم للحركة • <strong>E</strong> لفحص الأدلة • <strong>R</strong> لاستعادة المركبة
+          </div>
+        </div>
+        
+        <!-- DIRECT EMBEDDED WORKING GAME -->
+        <iframe class="game-frame" id="embeddedGame" src="game.html" allow="autoplay; fullscreen" loading="eager"></iframe>
+      </div>
+    </section>
+
+    <!-- TELEMETRY STATS BAR -->
+    <div class="telemetry-strip" style="margin-top: 40px;">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-label" data-i18n="stat_missions">مهمات استكشافية</span>
+          <div class="stat-value"><span id="statMissionsVal">3</span> <small>EXPLORED</small></div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label" data-i18n="stat_exhibits">معروضات 3D تفاعلية</span>
+          <div class="stat-value"><span id="statExhibitsVal">3</span> <small>INTERACTIVE</small></div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label" data-i18n="stat_claims">حقائق علمية موثقة</span>
+          <div class="stat-value"><span id="statClaimsVal">24</span> <small>NASA SOURCES</small></div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label" data-i18n="stat_xp">نقاط معرفة المستكشفين</span>
+          <div class="stat-value">12,480 <small>POINTS</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSIONS SECTION -->
+    <section class="section" id="missions">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-i18n="missions_kicker">تحقيقات ميدانية</span>
+          <h2 class="section-title" data-i18n="missions_title">اختر مهمتك الاستكشافية</h2>
+          <p class="section-desc" data-i18n="missions_desc">
+            اهبط على أسطح العوالم الأخرى، وافحص المعدات التاريخية، وحل ألغاز الاتصال، وأعد بناء المعرفة العلمية المفقودة.
+          </p>
+        </div>
+      </div>
+
+      <div class="missions-grid" id="missionsGrid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- 3D EQUIPMENT MUSEUM SECTION -->
+    <section class="section" id="museum">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-i18n="museum_kicker">مستودع الآثار الفضائية</span>
+          <h2 class="section-title" data-i18n="museum_title">متحف المعدات ثلاثي الأبعاد</h2>
+          <p class="section-desc" data-i18n="museum_desc">
+            دوّر وكبّر وافحص المركبات والمعدات الفضائية المتروكة في عوالم أخرى. تعرّف على مواصفاتها وأدواتها العلمية وما تعلمناه منها.
+          </p>
+        </div>
+      </div>
+
+      <div class="museum-container">
+        <div class="museum-viewport">
+          <canvas id="museumCanvas"></canvas>
+          <div class="viewport-overlay">
+            <span class="badge-tag">WebGL 3D VIEWPORT · ORBIT ACTIVE</span>
+            <div class="viewport-controls">
+              <button class="btn-chip" id="btnWireframe">Wireframe</button>
+              <button class="btn-chip" id="btnReset3D">⟲ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="museum-info-panel">
+          <div>
+            <div class="exhibit-selector" id="exhibitSelector"></div>
+            <div id="museumInfo"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE KNOWLEDGE GRAPH (PZ15) -->
+    <section class="section" id="graph">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">شبكة الأدلة والاستدلال // PZ15</span>
+          <h2 class="section-title">شبكة المعرفة والأدلة العلمية (Archive Graph)</h2>
+          <p class="section-desc">
+            حرك المؤشر فوق النقاط واضغط لاستكشاف الترابط بين المعدات المتروكة والأدلة الميدانية والاكتشافات العلمية الكبرى.
+          </p>
+        </div>
+      </div>
+
+      <div class="lab-panel">
+        <canvas id="graphCanvas" style="width: 100%; display: block; border-radius: var(--radius-md); background: rgba(5, 14, 28, 0.85);"></canvas>
+        <div id="graphDetailBox">
+          <div style="margin-top: 14px; color: var(--text-muted); font-size: 13px; text-align: center;">
+            حرّك المؤشر فوق أي عنصر في الشبكة أو اضغط عليه لعرض تفاصيل الربط العلمي.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBILITY LAB SIMULATOR -->
+    <section class="section" id="lab">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-i18n="lab_kicker">تجربة فيزيائية // SIM01</span>
+          <h2 class="section-title" data-i18n="lab_title">مختبر فيزياء التنقل وتخطيط المهمات</h2>
+          <p class="section-desc" data-i18n="lab_desc">
+            اختبر تأثير سرعة المركبة والمسافة في الوقت المتاح للملاحظات الجيولوجية، وفق معادلات تخطيط رحلات أبولو الحقيقية: الزمن = المسافة ÷ السرعة.
+          </p>
+        </div>
+      </div>
+
+      <div class="lab-grid">
+        <div class="lab-panel">
+          <h3 style="color: var(--cyan); margin-bottom: 20px;">متغيرات الرحلة الاستكشافية</h3>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>مسافة المسار (Traverse Distance)</span>
+              <strong id="val_dist">1200 m</strong>
+            </div>
+            <input type="range" id="lab_dist" min="300" max="3000" step="100" value="1200">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>سرعة المركبة (Rover Speed)</span>
+              <strong id="val_speed">10 km/h</strong>
+            </div>
+            <input type="range" id="lab_speed" min="4" max="15" step="1" value="10">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>الوقت المتاح للمهمة (EVA Time Budget)</span>
+              <strong id="val_budget">180 min</strong>
+            </div>
+            <input type="range" id="lab_budget" min="60" max="240" step="10" value="180">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>مدة المحطة العلمية الواحدة (Per Stop)</span>
+              <strong id="val_duration">25 min</strong>
+            </div>
+            <input type="range" id="lab_duration" min="10" max="60" step="5" value="25">
+          </div>
+        </div>
+
+        <div class="lab-panel">
+          <h3 style="color: var(--gold); margin-bottom: 16px;">المقارنة الفيزيائية والنتائج</h3>
+          
+          <div class="lab-results">
+            <div class="lab-card">
+              <h4>رائد فضاء ماشياً (3 كم/س)</h4>
+              <div class="big-num" id="labWalkTime">24.0 <small>MIN</small></div>
+              <div class="lab-meta">
+                <span>المحطات الممكنة: <strong id="labWalkStops" style="color: #fff;">6</strong></span>
+                <span>المعامل: 1.0x الأساس</span>
+              </div>
+            </div>
+
+            <div class="lab-card rover">
+              <h4 style="color: var(--cyan);">مركبة أبولو القمرية (LRV)</h4>
+              <div class="big-num" id="labRoverTime" style="color: var(--cyan);">7.2 <small>MIN</small></div>
+              <div class="lab-meta">
+                <span>المحطات الممكنة: <strong id="labRoverStops" style="color: var(--cyan);">6</strong></span>
+                <span>المعامل: توفير وقت فائق</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: rgba(14, 28, 50, 0.75); border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 18px; margin-top: 20px;">
+            <strong style="color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 6px;">الاستنتاج العلمي المدعوم بالدليل</strong>
+            <p id="labConclusion" style="color: var(--text-secondary); font-size: 14px; margin: 0; line-height: 1.6;">
+              جاري حساب أثر الحركة في توسيع فرص العمل الحقلي...
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORIES SECTION -->
+    <section class="section" id="stories">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-i18n="stories_kicker">أرشيف السرد العلمي</span>
+          <h2 class="section-title" data-i18n="stories_title">قصص من آفاق الفضاء</h2>
+          <p class="section-desc" data-i18n="stories_desc">
+            حكايات تعليمية مشوقة تحول المهمات الكوكبية المعقدة إلى مغامرات إنسانية خالدة.
+          </p>
+        </div>
+      </div>
+
+      <div class="stories-grid" id="storiesGrid"></div>
+    </section>
+
+    <!-- QUIZ CHALLENGE SECTION -->
+    <section class="section" id="quiz">
+      <div class="section-header" style="text-align: center; justify-content: center;">
+        <div>
+          <span class="section-kicker" data-i18n="quiz_kicker">تحدي المعرفة الفضائية</span>
+          <h2 class="section-title" data-i18n="quiz_title">اختبر معلوماتك في علوم الفضاء</h2>
+          <p class="section-desc" data-i18n="quiz_desc" style="margin: 6px auto 0;">
+            أجب عن أسئلة علمية موثقة بمصادر ناسا واجمع نقاط المعرفة XP وارتقِ في رتب رواد الفضاء.
+          </p>
+        </div>
+      </div>
+
+      <div class="quiz-box" id="quizContainer"></div>
+    </section>
+
+    <!-- GAME BIBLE EXPLORER SECTION -->
+    <section class="section" id="bible">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-i18n="bible_kicker">التوثيق الشامل للعبة</span>
+          <h2 class="section-title" data-i18n="bible_title">مستكشف وثيقة المشروع الكاملة (Game Bible)</h2>
+          <p class="section-desc" data-i18n="bible_desc">
+            تصفح أوراق التصميم الـ 43: كتالوج الألغاز الـ 35، والحقائق العلمية الـ 24، وأسئلة المحكمين، والمعمارية التقنية.
+          </p>
+        </div>
+      </div>
+
+      <div class="lab-panel">
+        <div id="bibleTabs" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;"></div>
+        <div id="bibleContent"></div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY LEADERBOARD & GUESTBOOK -->
+    <section class="section" id="community">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-i18n="community_kicker">سجل المستكشفين</span>
+          <h2 class="section-title" data-i18n="community_title">لوحة الشرف وسجل الزوار</h2>
+          <p class="section-desc" data-i18n="community_desc">
+            احتفِ بأفضل المستكشفين واقرأ ملاحظات الطلاب والمعلمين ومحكّمي مسابقة ناسا سبيس آبس.
+          </p>
+        </div>
+      </div>
+
+      <div class="community-grid">
+        <div class="community-card">
+          <h3 style="color: var(--gold); margin-bottom: 16px;">لوحة شرف المستكشفين (Leaderboard)</h3>
+          <div id="leaderboardList"></div>
+        </div>
+
+        <div class="community-card">
+          <h3 style="color: var(--cyan); margin-bottom: 16px;">سجل ملاحظات المحكمين والزوار</h3>
+          <div id="guestbookList" style="max-height: 280px; overflow-y: auto; margin-bottom: 18px;"></div>
+          
+          <form id="guestbookForm" style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <input type="text" id="gb_name" placeholder="اسمك أو لقبك" required style="padding: 10px; background: rgba(14,28,50,0.8); border: 1px solid var(--border-line); color: #fff; border-radius: var(--radius-sm); font-family: inherit;">
+              <input type="text" id="gb_affil" placeholder="صفتك (طالب / معلم / محكّم)" style="padding: 10px; background: rgba(14,28,50,0.8); border: 1px solid var(--border-line); color: #fff; border-radius: var(--radius-sm); font-family: inherit;">
+            </div>
+            <textarea id="gb_comment" placeholder="اكتب رأيك أو ملاحظتك حول التجربة العلمية..." rows="3" required style="padding: 10px; background: rgba(14,28,50,0.8); border: 1px solid var(--border-line); color: #fff; border-radius: var(--radius-sm); font-family: inherit; resize: vertical;"></textarea>
+            <button type="submit" class="btn-primary" style="align-self: flex-start; padding: 10px 20px;">
+              نشر الملاحظة ✉
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FULLSCREEN THEATER GAME MODAL -->
+  <div id="gameModal" class="game-modal" style="background: rgba(1, 4, 10, 0.96);">
+    <div style="position: absolute; top: 14px; right: 20px; z-index: 100; display: flex; gap: 10px;">
+      <a class="btn-chip" href="game.html" target="_blank" style="background: rgba(10,25,45,0.9); border-color: var(--cyan); color: #fff;">
+        نافذة جديدة ↗
+      </a>
+      <button class="btn-chip" id="btnExitGame" style="background: rgba(10,25,45,0.9); border-color: var(--mars-red); color: #fff;">
+        ✕ العودة للمنصة (Exit)
+      </button>
+    </div>
+    <iframe id="gameIframe" src="game.html" style="width: 100%; height: 100%; border: none;" allow="autoplay; fullscreen"></iframe>
+  </div>
+
+  <!-- MARS SOL SIMULATOR MODAL -->
+  <div id="marsModal" class="mars-modal">
+    <div class="mars-container" id="marsContainer"></div>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <div style="font-weight: 800; color: #fff; margin-bottom: 4px;">ECHOES OF SPACE: THE LAST SIGNAL</div>
+        <p style="max-width: 650px; font-size: 12px; line-height: 1.5;">
+          منصة تعليمية مستقلة وشريحة رأسية تفاعلية طُورت لمسابقة NASA Space Apps Challenge 2026. تم التحقق من البيانات العلمية وسجلات المهمات عبر أرشيف ناسا الرسمي. لا تعني رعاية أو اعتماداً رسمياً من ناسا.
+        </p>
+      </div>
+      <div>
+        <a href="https://www.spaceappschallenge.org/2026/challenges/abandoned-but-not-forgotten-storytelling-about-nasas-discarded-equipment-on-the-moon-and-mars/" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); text-decoration: none; font-size: 12px;">
+          بوابة تحدي ناسا سبيس آبس 2026 ↗
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/mars_sim.js"></script>
+  <script src="js/museum_3d.js"></script>
+  <script src="js/evidence_graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

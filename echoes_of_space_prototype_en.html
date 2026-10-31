@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECHOES OF SPACE | The Last Signal</title>
+<style>
+:root{--bg:#07111f;--panel:#101e32;--panel2:#152742;--cyan:#70e1f5;--gold:#f6c96b;--text:#edf5ff;--muted:#a8b8ce}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:radial-gradient(ellipse at top,#142747 0,#07111f 58%);color:var(--text);line-height:1.7}
+header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff18;gap:16px;flex-wrap:wrap}
+.logo{font-weight:800;letter-spacing:.8px;color:var(--cyan)}nav{display:flex;gap:10px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:20px}nav a:hover{background:#ffffff12;color:white}
+.hero{padding:65px 7% 55px;display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
+.eyebrow{color:var(--gold);font-size:14px}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.2;margin:12px 0}.hero p{color:var(--muted);max-width:650px}
+.btn{border:0;border-radius:12px;padding:12px 18px;background:var(--cyan);color:#061321;font-weight:bold;cursor:pointer;margin:5px 0 0 5px}.btn.secondary{background:#ffffff12;color:var(--text);border:1px solid #ffffff22}
+.orbit{height:260px;display:grid;place-items:center;position:relative}.planet{width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#a7d7e9,#456c9b 45%,#17284b 75%);box-shadow:0 0 55px #5ab8e955;position:relative}.planet:after{content:"";position:absolute;width:270px;height:75px;border:2px solid #9be6f7aa;border-radius:50%;transform:rotate(-20deg);top:60px;left:-40px}
+section{padding:28px 7% 48px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;flex-wrap:wrap}.section-head h2{margin:0;font-size:28px}.section-head p{color:var(--muted);margin:5px 0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:20px}.card{background:linear-gradient(145deg,var(--panel),#0b1728);border:1px solid #ffffff14;border-radius:18px;padding:20px;min-height:175px}.card .icon{font-size:30px}.card h3{margin:8px 0}.card p{color:var(--muted);font-size:14px}.tag{display:inline-block;color:var(--cyan);font-size:12px;background:#70e1f515;padding:4px 9px;border-radius:20px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:20px}.museum-art{background:linear-gradient(135deg,#1b3555,#091525);border-radius:18px;min-height:270px;display:grid;place-items:center;font-size:90px;border:1px solid #ffffff16}.museum-info{padding:10px}.museum-info p{color:var(--muted)}
+.story{display:flex;gap:18px;align-items:center}.story .cover{font-size:54px;background:#172a43;border-radius:14px;padding:16px}
+.quizbox{background:var(--panel);border:1px solid #ffffff18;border-radius:18px;padding:22px;margin-top:20px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answers button{background:#182b45;color:white;border:1px solid #ffffff22;border-radius:12px;padding:12px;cursor:pointer}.answers button:hover{border-color:var(--cyan)}#feedback{color:var(--gold);min-height:28px}
+footer{padding:28px 7%;border-top:1px solid #ffffff18;color:var(--muted);font-size:13px}
+@media(max-width:800px){.hero,.feature{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.orbit{height:200px}.planet{width:140px;height:140px}.planet:after{width:210px;left:-35px;top:40px}}
+@media(max-width:480px){.grid,.answers{grid-template-columns:1fr}.hero{padding-top:40px}}
+</style>
+</head>
+<body>
+<div style="background:linear-gradient(90deg,#0a213a,#164b73);padding:10px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #70e1f555;font-size:14px;gap:10px;flex-wrap:wrap;">
+  <span>🚀 <b>3D Game and Full-Stack Platform Active!</b> Click to launch game or explore platform:</span>
+  <div style="display:flex;gap:8px;">
+    <a href="echoes_space_v2/index.html" style="background:#70e1f5;color:#061321;padding:6px 16px;border-radius:20px;text-decoration:none;font-weight:bold;">▶ Play 3D Game</a>
+    <a href="index.html" style="background:rgba(255,255,255,0.15);color:#fff;padding:6px 14px;border-radius:20px;text-decoration:none;font-weight:bold;border:1px solid rgba(255,255,255,0.3);">Full Platform ↗</a>
+  </div>
+</div>
+<header><div class="logo">✦ ECHOES OF SPACE</div><nav><a href="#explore">Explore</a><a href="#museum">Museum</a><a href="#stories">Stories</a><a href="#quiz">Quiz</a></nav></header>
+<main>
+<div class="hero">
+<div><div class="eyebrow">INTERACTIVE EDUCATIONAL PLATFORM • PROTOTYPE</div><h1>Every piece we left in space<br><span style="color:var(--cyan)">has a story worth telling.</span></h1><p>Discover equipment left on the Moon and Mars through a 3D museum, stories, an educational game, and knowledge challenges.</p><button class="btn" onclick="document.querySelector('#explore').scrollIntoView({behavior:'smooth'})">Start Exploring →</button><button class="btn secondary" onclick="document.querySelector('#museum').scrollIntoView({behavior:'smooth'})">زيارة Museum</button></div>
+<div class="orbit"><div class="planet"></div></div>
+</div>
+<section id="explore"><div class="section-head"><div><h2>Your Learning Journey</h2><p>Choose how you want to discover the legacy of space exploration.</p></div></div>
+<div class="grid">
+<div class="card"><div class="icon">🪐</div><span class="tag">Explore</span><h3>Equipment Museum</h3><p>Discover space equipment, its missions, and why it matters.</p><button class="btn secondary" onclick="document.querySelector('#museum').scrollIntoView({behavior:'smooth'})">دخول Museum</button></div>
+<div class="card"><div class="icon">🎮</div><span class="tag">Play & Learn</span><h3>Exploration Mission</h3><p>Solve puzzles, collect clues, and uncover the story of a piece of space equipment.</p><button class="btn secondary" onclick="window.location.href='echoes_space_v2/index.html'">Start Mission</button></div>
+<div class="card"><div class="icon">📖</div><span class="tag">Read</span><h3>Stories from Space</h3><p>Accessible stories that turn space missions into engaging adventures.</p><button class="btn secondary" onclick="document.querySelector('#stories').scrollIntoView({behavior:'smooth'})">Read قصة</button></div>
+<div class="card"><div class="icon">🧠</div><span class="tag">Test Your Knowledge</span><h3>Quizzes & Challenges</h3><p>Check what you learned and earn knowledge points.</p><button class="btn secondary" onclick="document.querySelector('#quiz').scrollIntoView({behavior:'smooth'})">Start Quiz</button></div>
+</div></section>
+<section id="museum"><div class="section-head"><div><h2>Museum الفضائي</h2><p>A sample equipment card — the illustration can be replaced with a real 3D model.</p></div></div>
+<div class="feature"><div class="museum-art">🛰️</div><div class="museum-info"><span class="tag">Sample Exhibit</span><h2>Space Exploration Rover</h2><p>Robotic rovers explore the surfaces of celestial bodies, collect data and images, and help scientists understand environments that are difficult for humans to reach.</p><p><b>What can you discover?</b> Mission • Instruments • How it works • What we learned</p><button class="btn" onclick="window.location.href='index.html#museum'">Explore المعدّة 3D</button></div></div>
+</section>
+<section id="stories"><div class="section-head"><div><h2>Stories from Space</h2><p>Learning begins with a question—and turns into an adventure.</p></div></div>
+<div class="card story"><div class="cover">🌙</div><div><span class="tag">SHORT STORY • SAMPLE</span><h3>The Message Left on the Moon</h3><p>In a quiet place far from Earth, equipment remains as a trace of a scientific journey. What did it do, and what knowledge did it leave behind?</p><button class="btn secondary" onclick="window.location.href='index.html#stories'">Open Story</button></div></div>
+</section>
+<section id="quiz"><div class="section-head"><div><h2>Test Your Knowledge</h2><p>A quick sample question.</p></div></div>
+<div class="quizbox"><h3>Why does NASA send robotic vehicles to explore the Moon and Mars?</h3><div class="answers"><button onclick="answer(false)">To build cities immediately</button><button onclick="answer(true)">To collect data and images and study the environment</button><button onclick="answer(false)">To light up planets</button><button onclick="answer(false)">To stop their rotation</button></div><p id="feedback"></p></div>
+</section>
+</main>
+<footer>© ECHOES OF SPACE: THE LAST SIGNAL • Team concept prototype — final scientific content should be verified with NASA sources.</footer>
+<script>
+function answer(ok){document.getElementById('feedback').textContent=ok?'Correct! Rovers collect data that helps scientists study the environment.':'Try again! Think about the purpose of scientific exploration.'}
+</script>
+</body></html>

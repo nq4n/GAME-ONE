@@ -1,0 +1,23 @@
+{
+  "name": "echoes-of-space-the-last-signal",
+  "version": "2.0.0",
+  "description": "Interactive 3D WebGL STEM Simulator and Educational Web Platform for NASA Space Apps Challenge 2026",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "nasa",
+    "space-apps-challenge-2026",
+    "webgl",
+    "apollo-15",
+    "lunar-rover",
+    "mars-opportunity",
+    "stem",
+    "space-education",
+    "arabic-rtl"
+  ],
+  "author": "ECHOES OF SPACE Team",
+  "license": "MIT"
+}
